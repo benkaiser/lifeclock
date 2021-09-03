@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Life Clock - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class='container'>
+    <h1>Theme Options</h1>
+    <div class='form-control'>
+      Theme Color
+      <select id="theme" class='form-input'>
+      </select>
+    </div>
+
+    <div class='form-control'>
+      <label>
+        Custom title:
+        <textarea class='form-input' id="title"></textarea>
+      </label>
+    </div>
+
+    <div class='form-control'>
+      <label>
+        Date of Birth
+        <input class='form-input' type="date" id="dateOfBirth">
+      </label>
+    </div>
+
+    <div class='form-control'>
+      <label>
+        Life Expectancy
+        <input class='form-input' type="number" id="lifeExpectancy" placeholder="85">
+      </label>
+    </div>
+
+    <div class='form-control'>
+      <div id="status"></div>
+    </div>
+    <div class='form-control'>
+      <button id="save">Save</button>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='constants.js'></script>
+  <script type='text/javascript' src='options.js'></script>
+
+</body>
+
+</html>
