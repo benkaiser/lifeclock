@@ -40,7 +40,8 @@ h1 {
   text-align: center;
   font-family: 'LibreFranklin', Arial, Helvetica, sans-serif;
   color: #333;
-  font-size: 5vh;
+  font-size: 36px;
+  line-height: 1.6;
   max-height: 100%;
 }
 
@@ -68,7 +69,7 @@ h1 {
 .alive {
   background-color: var(--gray);
   background-color: #ccc;
-  opacity: 0.8;
+  opacity: 1;
 }
 
 #container .row:last-child {

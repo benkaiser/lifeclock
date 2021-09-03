@@ -42,15 +42,20 @@ function setPositionOfMessage(fractionAlive) {
   messageContainer.classList.add('visible');
 }
 
-function setTheme(themeName) {
+function setTheme(themeNameOrColor, useCustomColor) {
   var root = document.querySelector(':root');
-  if (themeName === 'random') {
-    const themeNamesWithoutRandom = Object.keys(themes).filter(name => name !== 'random');
-    themeName = themeNamesWithoutRandom[Math.floor(Math.random() * themeNamesWithoutRandom.length)];
+  if (useCustomColor) {
+    root.style.setProperty('--theme-1', themeNameOrColor);
+    root.style.setProperty('--theme-2', themeNameOrColor);
+  } else {
+    if (themeNameOrColor === 'random') {
+      const themeNamesWithoutRandom = Object.keys(themes).filter(name => name !== 'random');
+      themeNameOrColor = themeNamesWithoutRandom[Math.floor(Math.random() * themeNamesWithoutRandom.length)];
+    }
+    const color = themes[themeNameOrColor];
+    root.style.setProperty('--theme-1', color.start);
+    root.style.setProperty('--theme-2', color.end);
   }
-  const color = themes[themeName];
-  root.style.setProperty('--theme-1', color.start);
-  root.style.setProperty('--theme-2', color.end);
 }
 
 function setTitle(title) {
@@ -69,9 +74,10 @@ chrome.storage.sync.get({
   title: 'MAKE THIS\nWEEK COUNT',
   theme: 'random',
   lifeExpectancy: 85,
-  dateOfBirth: '1996-05-26'
+  dateOfBirth: '1996-05-26',
+  useCustomColor: false
 }, function(items) {
-  setTheme(items.theme);
+  setTheme(items.theme, items.useCustomColor);
   setTitle(items.title);
   renderCells(items.lifeExpectancy, new Date(items.dateOfBirth));
 });

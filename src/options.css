@@ -57,3 +57,24 @@ button:hover {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
+
+textarea {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --theme-1: #fff;
+  --theme-2: #fff;
+}
+
+#themePreview {
+  width: 200px;
+  height: 150px;
+  float: right;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, var(--theme-1), var(--theme-2));
+}
+
+#themePreview.hidden {
+  display: none;
+}
